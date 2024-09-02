@@ -6,7 +6,9 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:55:02 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/09/02 17:55:04 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:00:21 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
 
