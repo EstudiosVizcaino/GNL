@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:51:28 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/09/02 17:53:33 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/09/18 17:45:49 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# define BUFFER_SIZE 17
 
 char *get_next_line(int fd);
-
+char	*ft_strchr(const char *s, int c);
 
 #endif
