@@ -1,0 +1,101 @@
+holi alioli
+qweqe 
+awd asds 
+asd 
+asd 
+asdasd \n asdas \n asd
+
+
+
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# define BUFFER_SIZE	1024
+
+///COMPARAR VERSIONES DE ft_read Y VER CÓMO USAR get_line & delete_line
+
+char *ft_read(char *s, int fd) {
+    char *str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+    int n_chars = 1;
+
+    if (!str)
+        return NULL;
+    while (n_chars > 0) {
+        n_chars = read(fd, str, BUFFER_SIZE);
+        if (n_chars < 0)
+            return (free(str), free(s), NULL);
+        str[n_chars] = '\0';
+        
+        if (!s) {
+            s = ft_strdup(""); // Initialize s if NULL
+            if (!s)
+                return (free(str), NULL);
+        }
+        
+        char *temp = s;
+        s = ft_strjoin(s, str);
+        free(temp);
+        if (!s || ft_strchr(str, '\n'))
+            break;
+    }
+    free(str);
+    return s;
+}
+char *get_line(char *statica)
+{
+    char *line;
+    int len;
+
+    // Find the length up to the newline or end of string
+    len = 0;
+    while (statica[len] != '\n')
+        len++;
+    if (statica[len] == '\n')  // Include newline if present
+        len++;
+
+    // Extract the first line into a new string
+    line = ft_substr(statica, 0, len);
+    return line;
+}
+
+/// @brief Deletes the first line from statica and keeps the rest.
+/// @param statica The input static string containing the remaining file content.
+/// @return A dynamically allocated string containing the remaining content after the first line.
+char *delete_line(char *statica)
+{
+    char *tmpstatic;
+    int len;
+
+    // Find the position of newline or end of string
+    len = 0;
+    while (statica[len] != '\n')
+        len++;
+    if (statica[len] == '\n')  // Move past the newline if present
+        len++;
+
+    // Create a new string with the remaining content
+    tmpstatic = ft_substr(statica, len, ft_strlen(statica) - len);
+    free(statica);
+    return tmpstatic;
+}
+
+/// @brief Returns the next line from a file descriptor.
+/// @param fd The file descriptor to read from.
+/// @return A dynamically allocated string containing the next line, or NULL if no more lines.
+char* get_next_line(int fd) {
+    static char *static_string = NULL;
+    char *line;
+
+    // Read content into static_string
+    static_string = ft_read(static_string, fd);
+    if (!static_string)
+        return NULL; // No more content to read
+
+    // Extract the next line
+    line = get_line(static_string);
+
+    // Update static_string to remove the extracted line
+    static_string = delete_line(static_string);
+
+    return line;
+}
