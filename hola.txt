@@ -99,3 +99,37 @@ char* get_next_line(int fd) {
 
     return line;
 }
+
+
+OWN ft_read
+
+char	*ft_read(char *s, int fd)
+{
+	char	*str;
+	int		n_chars;
+	char	*temp;
+
+	str = malloc(BUFFER_SIZE + 1);
+	if (!str)
+		return (NULL);
+	n_chars = 1;
+	while (n_chars > 0)
+	{
+		n_chars = read(fd, str, BUFFER_SIZE);
+		if (n_chars < 0)
+			return (free(str), free(s), NULL);
+		str[n_chars] = '\0';
+		if (!s)
+		{
+			s = ft_strdup("");
+			if (!s)
+				return (free(str), NULL);
+		}
+		temp = s;
+		s = ft_strjoin(s, str);
+		free(temp);
+		if (ft_strchr(str, '\n'))
+			break ;
+	}
+	return (free(str), s);
+}

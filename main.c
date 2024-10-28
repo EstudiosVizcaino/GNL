@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:08:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/10/28 18:13:49 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/10/28 22:13:08 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,15 @@ int	main (int argc, char **argv)
 	line = get_next_line(fd);
 	printf("%s", line);
 	line = get_next_line(fd);
-	printf("%s\n", line);
+	printf("%s\n PUTAAAAAAA\n", line);
 	free (line);
+	
+	while (line)
+	{
+		line = get_next_line(fd);
+		printf("%s", line);
+	}
+
 	if (line == NULL)
     {
         printf("End of file reached or error reading line.\n");
