@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:55:02 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/10/25 17:46:06 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/11 21:05:26 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char	*ft_strchr(const char *s, int c)
 	else
 		return (NULL);
 }
+
 /// @brief Concatenates two strings into a new string.
 /// This function creates a new string that is the result of concatenating 
 /// the strings `s1` and `s2`. Memory for the new string is dynamically 
@@ -61,6 +62,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	*(str + i) = '\0';
 	return (str);
 }
+
 /// @brief Returns the lenght of the given string
 /// @param s The string wanted to measure
 /// @return Its lenght
@@ -73,6 +75,7 @@ size_t	ft_strlen(const char *s)
 		++len;
 	return (len);
 }
+
 /// @brief Creates a substring from the given string.
 ///
 /// This function extracts a substring from the input string `s`, starting from 

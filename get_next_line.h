@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:51:28 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/10/25 17:46:21 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/11 21:23:57 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
-
-
-
 
 #endif
