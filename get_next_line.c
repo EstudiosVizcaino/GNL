@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 11:21:01 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:32:32 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_read(char *s, int fd, char *str)
 	{
 		n_chars = read(fd, str, BUFFER_SIZE);
 		if (n_chars < 0)
-			return (free(str), NULL);
+			return (free(s), free(str), NULL);
 		str[n_chars] = '\0';
 		if (!s)
 		{
@@ -97,8 +97,6 @@ char	*get_next_line(int fd)
 	if (!static_string)
 		return (NULL);
 	line = get_line(static_string);
-	if (!line)
-		return (NULL);
 	static_string = delete_line(static_string);
 	return (line);
 }
