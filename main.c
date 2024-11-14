@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:08:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 12:31:00 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:44:04 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,26 @@ int	main (int argc, char **argv)
 	char *line;
 
 	line = "";
-	if (argc != 2)
+	if (argc != 3)
 	{
 		printf("Usage: %s <file_name>\n", argv[0]);
         return (1);
 	}
 	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		{
+			perror("Error opening file");
+			return (1);
+		}
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	printf("\n");
+	fd = open(argv[2], O_RDONLY);
 	if (fd < 0)
 		{
 			perror("Error opening file");

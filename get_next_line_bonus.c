@@ -6,11 +6,11 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 12:38:40 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:41:35 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read(char *s, int fd, char *str)
 {
@@ -94,16 +94,11 @@ char	*get_next_line(int fd)
 	if (!str)
 		return (NULL);
 	static_string[fd] = ft_read(static_string[fd], fd, str);
-	free(str);
 	if (!static_string[fd])
 		return (NULL);
 	line = get_line(static_string[fd]);
 	if (!line)
-	{
-		free(static_string[fd]);
-		static_string[fd] = NULL;
 		return (NULL);
-	}
 	static_string[fd] = delete_line(static_string[fd]);
 	return (line);
 }
