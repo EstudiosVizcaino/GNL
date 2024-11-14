@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:55:02 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 12:31:47 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:18:49 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /// @brief f Locates the first occurrence of a character in a string.
 ///

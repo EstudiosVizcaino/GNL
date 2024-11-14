@@ -6,11 +6,11 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:08:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 10:48:12 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:31:00 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <fcntl.h>  // for open
 #include <stdio.h>
 

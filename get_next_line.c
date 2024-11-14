@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 11:46:48 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:25:48 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_read(char *s, int fd, char *str)
 	return (free(str), s);
 }
 
-char	*get_line(char *statica)
+static char	*get_line(char *statica)
 {
 	char	*line;
 	int		len;
@@ -62,7 +62,7 @@ char	*get_line(char *statica)
 /// file content.
 /// @return A dynamically allocated string containing the remaining
 /// content afterthe first line.
-char	*delete_line(char *statica)
+static char	*delete_line(char *statica)
 {
 	char	*remaining_text;
 	int		len;
