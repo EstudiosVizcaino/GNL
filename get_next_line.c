@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/11 21:10:23 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:00:11 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	*get_line(char *statica)
 	int		len;
 
 	len = 0;
+	if (!statica || !statica[len])
+		return (NULL);
 	while (statica[len] != '\n')
 		len++;
 	if (statica[len] == '\n')
@@ -64,6 +66,8 @@ char	*delete_line(char *statica)
 	int		len;
 
 	len = 0;
+	if (!statica || !statica[len])
+		return (NULL);
 	while (statica[len] != '\n')
 		len++;
 	if (statica[len] == '\n')

@@ -6,17 +6,20 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:51:28 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/11 21:23:57 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 08:31:50 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# define BUFFER_SIZE	1024
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);

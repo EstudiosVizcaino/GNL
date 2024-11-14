@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:08:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/11 21:03:58 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:03:20 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main (int argc, char **argv)
 	int fd;
 	char *line;
 
+	line = "";
 	if (argc != 2)
 	{
 		printf("Usage: %s <file_name>\n", argv[0]);
@@ -39,7 +40,7 @@ int	main (int argc, char **argv)
 	}
 
 	if (line == NULL)
-        printf("End of file reached or error reading line.\n");
+        printf("\nEnd of file reached or error reading line.\n");
 		
 	close (fd);
 	return (0);
