@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:08:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/12 18:03:20 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:48:12 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ int	main (int argc, char **argv)
 			perror("Error opening file");
 			return (1);
 		}
+	line = get_next_line(fd);
 	while (line)
 	{
-		line = get_next_line(fd);
 		printf("%s", line);
-		free (line);
+		free(line);
+		line = get_next_line(fd);
 	}
 
 	if (line == NULL)

@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 09:16:40 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:52:39 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@ char	*ft_read(char *s, int fd, char *str)
 	{
 		n_chars = read(fd, str, BUFFER_SIZE);
 		if (n_chars < 0)
-			return (free(str), free(s), NULL);
+			return (free(str), NULL);
 		str[n_chars] = '\0';
+		if (!s)
+		{
+			s = ft_strdup("") ;
+			if (!s)
+				return (free(str), NULL);
+		}
 		temp = s;
 		s = ft_strjoin(s, str);
 		if (!s)
-			return (free(str), NULL);
+			return (free (str), NULL);
 		free(temp);
 		if (ft_strchr(str, '\n'))
 			break ;
@@ -83,12 +89,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*str;
 
-	if (!static_string)
-	{
-		static_string = ft_strdup("");
-		if (!static_string)
-			return (NULL);
-	}
+	line = NULL;
 	str = malloc(BUFFER_SIZE + 1);
 	if (!str)
 		return (NULL);
