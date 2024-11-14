@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 08:53:11 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:09:01 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_read(char *s, int fd, char *str)
 		}
 		temp = s;
 		s = ft_strjoin(s, str);
+		if (!s)
+			return (free (s), free (str), NULL);
 		free(temp);
 		if (ft_strchr(str, '\n'))
 			break ;
@@ -91,7 +93,11 @@ char	*get_next_line(int fd)
 	if (!str)
 		return (NULL);
 	static_string = ft_read(static_string, fd, str);
+	if (!static_string)
+		return (NULL);
 	line = get_line(static_string);
+	if (!line)
+		return (free(static_string), NULL);
 	static_string = delete_line(static_string);
 	return (line);
 }
