@@ -6,13 +6,13 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/11/14 13:41:35 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:05:40 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_read(char *s, int fd, char *str)
+char	*ft_read(char *static_str, int fd, char *str)
 {
 	int		n_chars;
 	char	*temp;
@@ -22,23 +22,23 @@ char	*ft_read(char *s, int fd, char *str)
 	{
 		n_chars = read(fd, str, BUFFER_SIZE);
 		if (n_chars < 0)
-			return (free(str), NULL);
+			return (free(str), free(static_str), NULL);
 		str[n_chars] = '\0';
-		if (!s)
+		if (!static_str)
 		{
-			s = ft_strdup("");
-			if (!s)
+			static_str = ft_strdup("");
+			if (!static_str)
 				return (free(str), NULL);
 		}
-		temp = s;
-		s = ft_strjoin(s, str);
-		if (!s)
+		temp = static_str;
+		static_str = ft_strjoin(static_str, str);
+		if (!static_str)
 			return (free (str), NULL);
 		free(temp);
 		if (ft_strchr(str, '\n'))
 			break ;
 	}
-	return (free(str), s);
+	return (free(str), static_str);
 }
 
 char	*get_line(char *statica)
