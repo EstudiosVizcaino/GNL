@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:49:54 by cvizcain          #+#    #+#             */
-/*   Updated: 2024/12/21 17:01:33 by cvizcain         ###   ########.fr       */
+/*   Updated: 2024/12/21 17:28:19 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_read(char *static_str, int fd, char *str)
 		temp = static_str;
 		static_str = ft_strjoin(static_str, str);
 		if (!static_str)
-			return (free (str), NULL);
+			return (free (str), free(temp), NULL);
 		free(temp);
 		if (ft_strchr(str, '\n'))
 			break ;
@@ -74,7 +74,7 @@ static char	*delete_line(char *statica)
 		len++;
 	if (statica[len] == '\n')
 		len++;
-	if (ft_strlen(statica) - len == 0)
+	if (ft_strlen(statica) - len <= 0)
 		return (free(statica), NULL);
 	remaining_text = ft_substr(statica, len, ft_strlen(statica) - len);
 	if (!remaining_text)

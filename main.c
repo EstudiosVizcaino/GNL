@@ -47,37 +47,19 @@ int main(void)
         int fd = open("empty_file.txt", O_RDONLY);
 		char *name = "empty_file.txt";
         char *line;
-		/* 1 */ printf("should: aaaaaaaaaa: then: %s",line = get_next_line(fd));
+		/* 1 */ printf("should: 0: then: %s",line = get_next_line(fd));
         free(line);
-		/* 2 */ printf("should: bbbbbbbbbb: then: %s",line = get_next_line(fd));
+		/* 2 */ printf("should: (null): then: %s",line = get_next_line(fd));
         free(line);
-
 		// set the next read call to return -1
         char *temp;
         do {
             temp = get_next_line(fd);
             free(temp);
         } while (temp != NULL);
-		/* 3 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		close(fd);
-		fd = open(name, O_RDONLY);
-		/* 4 */ printf("should: aaaaaaaaaa: then: %s",line = get_next_line(fd));
-        free(line);
-		/* 5 */ printf("should: bbbbbbbbbb: then: %s",line = get_next_line(fd));
-        free(line);
-		/* 6 */ printf("should: cccccccccc: then: %s",line = get_next_line(fd));
-        free(line);
-		/* 7 */ printf("should: dddddddddd: then: %s",line = get_next_line(fd));
-        free(line);
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		/* 8 */ printf("should: NULL: then: %s\n",line = get_next_line(fd));
-		close(fd);
+		/* 3 */ printf("should: (null): then: %s\n",line = get_next_line(fd));
+        close(fd);
+
     //test_from_file("empty_file.txt");
 
     //test_from_stdin();
